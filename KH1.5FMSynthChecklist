@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KH 1.5 FM - Synthesis Checklist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #dadada;
+      --text-color: #333;
+      --card-bg: #fff;
+      --highlight-color: #c48fa0;
+      --accent-color: #b34d6a;
+      --checkbox-color: #b34d6a;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --card-bg: #2c2c2c;
+      --highlight-color: #555;
+      --accent-color: #ff6a8d;
+      --checkbox-color: #ff85b3;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding: 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      margin: 0;
+    }
+
+    h1 {
+      color: var(--text-color);
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .header-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .toggle-theme,
+    .reset-progress {
+      cursor: pointer;
+      background: var(--highlight-color);
+      border: 2px solid var(--text-color);
+      color: var(--text-color);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .checklist-container {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .checklist-container {
+        flex-direction: column;
+      }
+
+      .tracker {
+        margin-top: 0;
+        width: 100%;
+      }
+
+      .checklist {
+        width: 100%;
+      }
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      flex: flex-start;
+      width: 70%;
+    }
+
+    .location {
+      margin-bottom: 12px;
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 8px 12px;
+      border-left: 4px solid var(--accent-color);
+    }
+
+    .location h2 {
+      font-size: 1.1em;
+      color: var(--accent-color);
+      margin-bottom: 6px;
+    }
+
+    .location ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+      font-size: 0.95em;
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+      accent-color: var(--checkbox-color);
+    }
+
+    .tracker {
+      width: 300px;
+      background-color: var(--card-bg);
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid var(--accent-color);
+      margin-top: 155px;
+    }
+
+    .tracker h2 {
+      font-size: 1.2em;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    #progress-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      font-size: 0.95em;
+      margin-bottom: 8px;
+    }
+
+    .main-layout {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <div class="main-layout"><div class="checklist-container">
+      <div class="checklist">
+      <div class="header-controls">
+        <h1>Kingdom Hearts 1.5 Final Mix Synthesis Farming Checklist</h1>
+        <div>
+          <button class="toggle-theme" onclick="toggleTheme()">🌙 Toggle Dark/Light Mode 🌞</button>
+          <button class="reset-progress" onclick="resetProgress()">🔄 Reset Progress</button>
+        </div>
+          <div id="overall-progress" style="margin-top: 10px; font-weight: 600;">
+            Progress: 0 / 0
+          </div>
+      </div>
+    
+    <div class="location">
+      <h2>🌆 Traverse Town</h2>
+      <ul>
+        <li><input type="checkbox"> Bright Crystal x4 – Defender</li>
+        <li><input type="checkbox"> Bright Gem x8 – Search Ghost</li>
+        <li><input type="checkbox"> Power Stone x5 – Sniperwild</li>
+        <li><input type="checkbox"> Spirit Gem x7 – Air Soldier</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>❄️ Wonderland</h2>
+      <ul>
+        <li><input type="checkbox"> Frost Shard x10 – Blue Rhapsody</li>
+        <li><input type="checkbox"> Fury Stone x5 – Gigas Shadow</li>
+        <li><input type="checkbox"> Lucid Shard x37 – Shadow</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🌿 Deep Jungle</h2>
+      <ul>
+        <li><input type="checkbox"> Bright Shard x13 – Green Requiem</li>
+        <li><input type="checkbox"> Lightning Stone x5 – Black Ballad</li>
+        <li><input type="checkbox"> Power Shard x13 – Bouncywild / Powerwild</li>
+        <li><input type="checkbox"> Serenity Power x7 – Pink Agaricus</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🏜️ Agrabah</h2>
+      <ul>
+        <li><input type="checkbox"> Blaze Gem x10 – Bandit / Fat Bandit</li>
+        <li><input type="checkbox"> Mythril Shard x12 – Barrel Spider / Pot Spider</li>
+        <li><input type="checkbox"> Mythril Stone x8 – Pot Scorpion</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🐋 Monstro</h2>
+      <ul>
+        <li><input type="checkbox"> Blaze Shard x12 – Red Nocturne</li>
+        <li><input type="checkbox"> Frost Shard x10 – Blue Rhapsody</li>
+        <li><input type="checkbox"> Frost Stone x7 – Grand Ghost</li>
+        <li><input type="checkbox"> Mythril Shard x12 – Barrel Spider / Pot Spider</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🌊 Atlantica</h2>
+      <ul>
+        <li><input type="checkbox"> Frost Gem x10 – Sea Neon / Sheltering Zone</li>
+        <li><input type="checkbox"> Thunder Gem x15 – Aquatank / Screwdiver</li>
+        <li><input type="checkbox"> Serenity Power x7 – Pink Agaricus</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🛫 Neverland</h2>
+      <ul>
+        <li><input type="checkbox"> Dazzling Stone x6 – Jet Balloon</li>
+        <li><input type="checkbox"> Power Gem x11 – Pirate / Air Pirate / Battleship</li>
+        <li><input type="checkbox"> Thunder Shard x12 – Yellow Opera</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🎃 Halloween Town</h2>
+      <ul>
+        <li><input type="checkbox"> Blazing Stone x7 – Chimera</li>
+        <li><input type="checkbox"> Lucid Gem x13 – Gargoyle / Wight Knight</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🏰 Hollow Bastion</h2>
+      <ul>
+        <li><input type="checkbox"> Energy Stone x6 - Stealth Soldier</li>
+        <li><input type="checkbox"> Spirit Shard x13 - Large Body / Soldier</li>
+        <li><input type="checkbox"> Power Crystal x3 – Defender</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🌌 End of the World</h2>
+      <ul>
+        <li><input type="checkbox"> Gale x8 – Angel Star / Invisible</li>
+        <li><input type="checkbox"> Stormy Stone x4 – Neo Shadow</li>
+      </ul>
+    </div>
+
+    <div class="location">
+      <h2>🌍 Various / Multiple Worlds</h2>
+      <ul>
+        <li><input type="checkbox"> Lucid Crystal x9 – Darkball</li>
+        <li><input type="checkbox"> Shiny Crystal x3 – Wizard</li>
+        <li><input type="checkbox"> Mystery Goo x10 – Black Fungus / Rare Truffle / White Mushrooms</li>
+        <li><input type="checkbox"> Mythril x17 – Treasure Chests / Synthesis</li>
+        <li><input type="checkbox"> Orichalcum x19 – Treasure Chests / Synthesis / Item Shop</li>
+        <li><input type="checkbox"> Dark Matter x14 – Treasures / Synthesis</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tracker">
+      <h2>Progress Tracker</h2>
+      <ul id="progress-list"></ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
+  }
+
+  const itemProgress = {
+    "Blaze Gem": 0,
+    "Blaze Shard": 0,
+    "Blazing Stone": 0,
+    "Bright Crystal": 0,
+    "Bright Gem": 0,
+    "Bright Shard": 0,
+    "Dark Matter": 0,
+    "Dazzling Stone": 0,
+    "Energy Stone": 6,
+    "Frost Gem": 0,
+    "Frost Shard": 0,
+    "Frost Stone": 0,
+    "Fury Stone": 0,
+    "Gale": 0,
+    "Lightning Stone": 0,
+    "Lucid Crystal": 0,
+    "Lucid Gem": 0,
+    "Lucid Shard": 0,
+    "Mythril": 0,
+    "Mythril Shard": 0,
+    "Mythril Stone": 0,
+    "Mystery Goo": 0,
+    "Orichalcum": 0,
+    "Power Crystal": 0,
+    "Power Gem": 0,
+    "Power Shard": 0,
+    "Power Stone": 0,
+    "Serenity Power": 0,
+    "Shiny Crystal": 0,
+    "Spirit Gem": 0,
+    "Spirit Shard": 0,
+    "Stormy Stone": 0,
+    "Thunder Gem": 0,
+    "Thunder Shard": 0
+  };
+  const requiredItems = {
+    "Blaze Gem": 10,
+    "Blaze Shard": 12,
+    "Blazing Stone": 7,
+    "Bright Crystal": 4,
+    "Bright Gem": 8,
+    "Bright Shard": 13,
+    "Dark Matter": 14,
+    "Dazzling Stone": 6,
+    "Energy Stone": 6,
+    "Frost Gem": 10,
+    "Frost Shard": 10,
+    "Frost Stone": 7,
+    "Fury Stone": 5,
+    "Gale": 8,
+    "Lightning Stone": 5,
+    "Lucid Crystal": 9,
+    "Lucid Gem": 13,
+    "Lucid Shard": 37,
+    "Mythril": 17,
+    "Mythril Shard": 12,
+    "Mythril Stone": 8,
+    "Mystery Goo": 10,
+    "Orichalcum": 19,
+    "Power Crystal": 3,
+    "Power Gem": 11,
+    "Power Shard": 13,
+    "Power Stone": 5,
+    "Serenity Power": 7,
+    "Shiny Crystal": 3,
+    "Spirit Gem": 7,
+    "Spirit Shard": 13,
+    "Stormy Stone": 4,
+    "Thunder Gem": 15,
+    "Thunder Shard": 12
+  };
+
+  function updateTracker() {
+    const progressList = document.getElementById('progress-list');
+    if (!progressList) return;
+    progressList.innerHTML = '';
+
+    Object.keys(requiredItems).forEach(item => {
+      const progress = itemProgress[item] || 0;
+      const total = requiredItems[item];
+
+      const listItem = document.createElement('li');
+      listItem.textContent = `${item}: ${progress} / ${total}`;
+      progressList.appendChild(listItem);
+    });
+  }
+
+  function updateOverallProgress() {
+  let totalCollected = 0;
+  let totalRequired = 0;
+
+  Object.keys(requiredItems).forEach(item => {
+    totalCollected += itemProgress[item];
+    totalRequired += requiredItems[item];
+  });
+
+  const display = document.getElementById('overall-progress');
+  if (display) {
+    display.textContent = `Progress: ${totalCollected} / ${totalRequired}`;
+  }
+}
+
+  function parseItemData(labelText) {
+    const match = labelText.match(/^(.*?) x(\d+)/);
+    if (match) {
+      return { item: match[1].trim(), count: parseInt(match[2]) };
+    }
+    return null;
+  }
+
+  function recalculateProgress() {
+    Object.keys(requiredItems).forEach(key => {
+      itemProgress[key] = 0;
+    });
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((cb) => {
+      const label = cb.parentElement.textContent.trim();
+      const data = parseItemData(label);
+      if (data && cb.checked) {
+        itemProgress[data.item] += data.count;
+      }
+    });
+  }
+
+  function handleCheckboxChange(event) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((cb, index) => {
+      localStorage.setItem(`checkbox-${index}`, cb.checked);
+    });
+    recalculateProgress();
+    updateTracker();
+    updateOverallProgress();
+  }
+
+  function resetProgress() {
+    
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((cb, index) => {
+        cb.checked = false;
+        localStorage.removeItem(`checkbox-${index}`);
+      });
+      recalculateProgress();
+      updateTracker();
+      updateOverallProgress();
+    
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    Object.keys(requiredItems).forEach(key => itemProgress[key] = 0);
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach((cb, index) => {
+      const saved = localStorage.getItem(`checkbox-${index}`);
+      if (saved === "true") cb.checked = true;
+      cb.addEventListener('change', handleCheckboxChange);
+      updateOverallProgress();
+    });
+
+    document.querySelector('.reset-progress').addEventListener('click', resetProgress);
+
+    recalculateProgress();
+    updateTracker();
+  });
+</script>
+</body>
+</html>
